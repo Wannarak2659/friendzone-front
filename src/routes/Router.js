@@ -3,49 +3,37 @@ import {
   createBrowserRouter,
   Navigate,
 } from "react-router-dom";
-import HeaderLayout from "../layout/HeaderLayout";
+import NavbarLayout from "../layout/NavbarLayout";
 import CreateGroupPage from "../pages/CreateGroupPage";
 import ErrorPage from "../pages/ErrorPage";
 import GroupPage from "../pages/GroupPage";
-import HomePage from "../pages/HomePage";
 import PostPage from "../pages/PostPage";
 import ProfilePage from "../pages/ProfilePage";
 import LandingPage from "../pages/LandingPage";
-import SearchPage from "../pages/SearchPage";
-import Layout from "../layout/Layout";
+// import SearchPage from "../pages/SearchPage";
 
 const router = createBrowserRouter([
   {
-    path: "/landing",
-    element: <HeaderLayout />,
+    path: "/home",
+    element: <LandingPage />,
     children: [
-      { index: true, element: <LandingPage /> },
-      { path: "search", element: <SearchPage /> },
+      // { index: true, element: <LandingPage /> },
+      // { path: "search", element: <SearchPage /> },
     ],
   },
   {
     path: "/",
-    element: <GroupPage />,
-    // errorElement: <ErrorPage />,
+    element: <NavbarLayout />,
+    errorElement: <ErrorPage />,
     children: [
-      // { path: "/", element: <HomePage /> },
-      //{ index: true, element: <HomePage /> },
-      { path: "create-group", element: <CreateGroupPage /> },
-      // { path: "post", element: <PostPage /> },
-      // { path: "*", element: <Navigate to="/home" /> },
-    ],
-  },
-  {
-    path: "/profile",
-    element: <ProfilePage />,
-    children: [
+      { path: "/", element: <GroupPage /> },
+      { path: "create", element: <CreateGroupPage /> },
+      { path: "profile", element: <ProfilePage /> },
       { path: "profile/:id", element: <ProfilePage /> },
       { path: "profile/:id/setting", element: <ProfilePage /> },
+      { path: "/post", element: <PostPage /> },
+      { path: "*", element: <Navigate to="/home" /> },
     ],
-  },
-  {
-    path: "/post",
-    element: <PostPage />,
   },
 ]);
 

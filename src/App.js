@@ -1,12 +1,12 @@
 import "./index.css";
-import LandingPage from "./pages/LandingPage";
+import NavbarLayout from "./layout/NavbarLayout";
+
 import Router from "./routes/Router";
 
 function App() {
   return (
     <>
       <Router />
-      <LandingPage />
     </>
   );
 }
