@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import EditProfile from "../component/EditProfile";
+import EditProfile from "../feature/auth/EditProfile";
 
 function ProfilePage() {
   const [showProfileModal, setShowProfileModal] = useState(false);

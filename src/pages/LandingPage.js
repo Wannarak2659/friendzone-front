@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
+import LoginForm from "../feature/auth/LoginForm";
+import RegisterForm from "../feature/auth/RegisterForm";
 import SearchBar from "../layout/SearchBar";
 
 function LandingPage() {
@@ -42,9 +44,10 @@ function LandingPage() {
       >
         GET STARTED
       </button>
-      {/* ------------------------LANDING PAGE NAV BAR------------------------- */}
+
+      {/* ########### LANDING PAGE NAV BAR ############## */}
       <div>
-        {/* Friendzone Logo */}
+        {/* --------- Friendzone Logo ---------- */}
         <nav className="px-2 sm:px-4 py-2.5 ">
           <div className="container flex flex-wrap items-center justify-between mx-auto">
             <Link to="" className="flex items-center">
@@ -56,10 +59,10 @@ function LandingPage() {
               <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white"></span>
             </Link>
 
-            {/* Search Bar */}
+            {/* -------------Search Bar-------------- */}
             <SearchBar />
 
-            {/* ---------------------Login navbar------------------------*/}
+            {/* -------------Login navbar------------*/}
             <div
               className="hidden w-full md:block md:w-auto"
               id="navbar-default"
@@ -74,6 +77,7 @@ function LandingPage() {
                   Log in
                 </Link>
 
+                {/* ////////////// */}
                 {showLoginModal ? (
                   <>
                     {/* Modal button */}
@@ -96,25 +100,8 @@ function LandingPage() {
                             </button>
                           </div>
 
-                          {/* Login modal form */}
-                          <div className="relative p-4 flex-auto">
-                            <form className="rounded-3xl px-16 pt-6 pb-8 w-full">
-                              <label className="block text-black text-sm font-bold mb-1">
-                                E-mail
-                              </label>
-                              <input
-                                placeholder="email@address.com"
-                                className="shadow appearance-none border rounded-3xl w-full py-2 px-1 text-black"
-                              />
-                              <label className="block text-black text-sm font-bold mb-1">
-                                Password
-                              </label>
-                              <input
-                                placeholder="Your Password"
-                                className="shadow appearance-none border rounded-3xl w-full py-2 px-1 text-black"
-                              />
-                            </form>
-                          </div>
+                          {/* Login form */}
+                          <LoginForm />
 
                           {/* Footer modal */}
                           <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
@@ -153,7 +140,7 @@ function LandingPage() {
         </nav>
       </div>
 
-      {/* ///////////////////////////////////// */}
+      {/* ------ Register -------*/}
       {showRegisterModal ? (
         <>
           {/* Modal button */}
@@ -177,49 +164,7 @@ function LandingPage() {
                 </div>
 
                 {/* New account modal form */}
-                <div className="relative p-4 flex-auto">
-                  <form className="rounded-3xl px-16 pt-6 pb-8 w-full">
-                    <label className="block text-black font-bold mb-1">
-                      First Name
-                    </label>
-                    <input
-                      placeholder=" First Name"
-                      name="firstName"
-                      className="shadow appearance-none border rounded-3xl w-full my-2 py-2 px-2 text-black"
-                    />
-                    <label className="block text-black font-bold mb-1">
-                      Last Name
-                    </label>
-                    <input
-                      placeholder="Last Name"
-                      name="lastName"
-                      className="shadow appearance-none border rounded-3xl w-full my-2 py-2 px-2 text-black"
-                    />
-
-                    <label className="block text-black text-sm font-bold mb-1">
-                      E-mail
-                    </label>
-                    <input
-                      placeholder=" email@address.com"
-                      className="shadow appearance-none border rounded-3xl w-full my-2 py-2 px-1 text-black"
-                    />
-                    <label className="block text-black text-sm font-bold mb-1">
-                      Password
-                    </label>
-                    <input
-                      placeholder=" Minimum 8 characters"
-                      className="shadow appearance-none border rounded-3xl w-full my-2 py-2 px-1 text-black"
-                    />
-                    <label className="block text-black text-sm font-bold mb-1">
-                      Confirm Password
-                    </label>
-                    <input
-                      placeholder=" Confirm Your Password"
-                      className="shadow appearance-none border rounded-3xl w-full py-2 px-1 text-black"
-                    />
-                    <span>Already have an account?</span>
-                  </form>
-                </div>
+                <RegisterForm />
 
                 {/* Footer modal */}
                 <div className="flex items-center justify-center p-6 border-t border-solid border-blueGray-200 rounded-b">
