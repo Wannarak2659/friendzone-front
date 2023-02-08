@@ -1,5 +1,4 @@
 import "./index.css";
-import NavbarLayout from "./layout/NavbarLayout";
 
 import Router from "./routes/Router";
 

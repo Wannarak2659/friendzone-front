@@ -14,7 +14,7 @@ function ProfilePage() {
             <img
               className="w-48 h-48 m-8 rounded-full shadow-lg"
               src="user1.jpg"
-              alt="Bonnie image"
+              alt="Bonnie"
             />
             <h5 className="mb-1 text-xl font-bold text-white ">Bonnie Green</h5>
             <p className="mb-1 text-sm font-bold text-white ">
@@ -70,7 +70,7 @@ function ProfilePage() {
                               type="button"
                               onClick={() => setShowProfileModal(false)}
                             >
-                              Edit Profile
+                              Submit
                             </button>
                           </Link>
                         </div>

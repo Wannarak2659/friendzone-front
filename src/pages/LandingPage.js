@@ -89,7 +89,7 @@ function LandingPage() {
                               Log in
                             </h3>
 
-                            {/* Exit button */}
+                            {/* Close button */}
                             <button
                               className="bg-transparent border-0 text-black float-right"
                               onClick={() => setShowLoginModal(false)}
@@ -163,7 +163,7 @@ function LandingPage() {
                   </button>
                 </div>
 
-                {/* New account modal form */}
+                {/* Register modal form */}
                 <RegisterForm />
 
                 {/* Footer modal */}
@@ -175,15 +175,6 @@ function LandingPage() {
                   >
                     Close
                   </button> */}
-                  <Link to="/profile">
-                    <button
-                      className="text-white bg-teal-400 font-bold uppercase text-center px-6 py-3 rounded-3xl shadow hover:shadow-lg outline-none focus:outline-none mt-0 "
-                      type="button"
-                      onClick={() => setShowRegisterModal(false)}
-                    >
-                      Create Account
-                    </button>
-                  </Link>
                 </div>
               </div>
             </div>

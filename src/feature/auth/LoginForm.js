@@ -8,6 +8,7 @@ function LoginForm() {
           E-mail
         </label>
         <input
+          type="text"
           placeholder="email@address.com"
           className="shadow appearance-none border rounded-3xl w-full py-2 px-1 text-black"
         />
@@ -15,6 +16,7 @@ function LoginForm() {
           Password
         </label>
         <input
+          type="password"
           placeholder="Your Password"
           className="shadow appearance-none border rounded-3xl w-full py-2 px-1 text-black"
         />

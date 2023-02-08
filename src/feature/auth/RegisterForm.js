@@ -1,44 +1,113 @@
-import React from "react";
+import { useState } from "react";
+import { toast } from "react-toastify";
+// import Input from "../../components/Input";
+import validateRegister from "../../validators/validate-register";
+// import * as authApi from "../../apis/auth-api";
+import Input from "../../component/Input";
+// import useLoading from "../../hooks/useLoading";
 
-function RegisterForm() {
+const initialInput = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  password: "",
+  confirmPassword: "",
+};
+
+function RegisterForm(onClose) {
+  const [input, setInput] = useState(initialInput);
+  const [error, setError] = useState({});
+  // ## show error with red text that get from console
+
+  // ## logic for handle register -binding state and input
+  const handleChangeInput = (e) => {
+    setInput({ ...input, [e.target.name]: e.target.value });
+  };
+
+  // ## logic for handle submit form
+  const handleSubmitForm = async (e) => {
+    // try {
+    e.preventDefault();
+    const result = validateRegister(input);
+    console.dir(error);
+    if (result) {
+      setError(result);
+    } else {
+      setError({});
+    }
+  };
+
   return (
     <div className="relative p-4 flex-auto">
-      <form className="rounded-3xl px-16 pt-6 pb-8 w-full">
-        <label className="block text-black font-bold mb-1">First Name</label>
-        <input
+      <form
+        className="rounded-2xl px-16 pt-6 pb-8 w-full"
+        onSubmit={handleSubmitForm}
+      >
+        <label className="block text-black text-sm font-bold mb-1">
+          First Name
+        </label>
+        <Input
           placeholder=" First Name"
           name="firstName"
-          className="shadow appearance-none border rounded-3xl w-full my-2 py-2 px-2 text-black"
+          value={input.firstName}
+          onChange={handleChangeInput}
+          error={error.firstName}
         />
-        <label className="block text-black font-bold mb-1">Last Name</label>
-        <input
-          placeholder="Last Name"
+
+        <label className="block text-black text-sm font-bold mb-1">
+          Last Name
+        </label>
+        <Input
+          placeholder=" Last Name"
           name="lastName"
-          className="shadow appearance-none border rounded-3xl w-full my-2 py-2 px-2 text-black"
+          value={input.lastName}
+          onChange={handleChangeInput}
+          error={error.lastName}
         />
 
         <label className="block text-black text-sm font-bold mb-1">
           E-mail
         </label>
-        <input
+        <Input
           placeholder=" email@address.com"
-          className="shadow appearance-none border rounded-3xl w-full my-2 py-2 px-1 text-black"
+          name="email"
+          value={input.email}
+          onChange={handleChangeInput}
+          error={error.email}
         />
         <label className="block text-black text-sm font-bold mb-1">
           Password
         </label>
-        <input
+        <Input
+          type="password"
           placeholder=" Minimum 8 characters"
-          className="shadow appearance-none border rounded-3xl w-full my-2 py-2 px-1 text-black"
+          name="password"
+          value={input.password}
+          onChange={handleChangeInput}
+          error={error.password}
         />
         <label className="block text-black text-sm font-bold mb-1">
           Confirm Password
         </label>
-        <input
+        <Input
+          type="password"
           placeholder=" Confirm Your Password"
-          className="shadow appearance-none border rounded-3xl w-full py-2 px-1 text-black"
+          name="confirmPassword"
+          value={input.confirmPassword}
+          onChange={handleChangeInput}
+          error={error.confirmPassword}
         />
         <span>Already have an account?</span>
+
+        {/* <Link to="#"> */}
+        <button
+          className="text-white bg-teal-400 font-bold uppercase text-center px-6 py-3 mt-8 rounded-3xl shadow hover:shadow-lg outline-none focus:outline-none  invalid:border-red-500 "
+          type="submit"
+          // onClick={() => setShowRegisterModal(false)}
+        >
+          Create Account
+        </button>
+        {/* </Link> */}
       </form>
     </div>
   );

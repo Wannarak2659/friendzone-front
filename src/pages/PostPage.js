@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+// import { Link } from "react-router-dom";
 
 function PostPage() {
   // const [showModal, setShowModal] = useState(false);
@@ -27,7 +27,7 @@ function PostPage() {
             <img
               className="w-72 h-56 m-8 rounded-md shadow-lg"
               src="travel.jpg"
-              alt="Bonnie image"
+              alt="Bonnie"
             />
             <h5 className="mb-1 text-xl font-bold text-white ">Group Name</h5>
           </div>

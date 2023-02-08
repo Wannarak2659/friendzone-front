@@ -29,7 +29,7 @@ function NavbarLayout() {
                   <img
                     className="w-10 h-10 m-2 rounded-full shadow-lg"
                     src="user1.jpg"
-                    alt="Bonnie image"
+                    alt="Bonnie"
                   />
                 </Link>
               </li>
