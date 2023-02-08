@@ -7,21 +7,6 @@ import SearchBar from "../layout/SearchBar";
 function LandingPage() {
   const [showRegisterModal, setShowRegisterModal] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
-  // const [input, setInput] = useState(initialInput);
-  // const [error, setError] = useState();
-
-  // const handleSubmitForm = async (e) => {
-  //   try {
-  //     e.preventDefault();
-  //     console.log(input);
-  //     const result = validateRegister(input);
-  //     if (result) {
-  //       setError(result);
-  //     }else {
-  //       console.log("no err");
-  //     }
-  //   } catch (err) {}
-  // };
 
   return (
     <div>
@@ -164,7 +149,7 @@ function LandingPage() {
                 </div>
 
                 {/* Register modal form */}
-                <RegisterForm />
+                <RegisterForm onClose={() => setShowRegisterModal(false)} />
 
                 {/* Footer modal */}
                 <div className="flex items-center justify-center p-6 border-t border-solid border-blueGray-200 rounded-b">

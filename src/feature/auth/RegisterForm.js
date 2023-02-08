@@ -1,8 +1,8 @@
 import { useState } from "react";
+// import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-// import Input from "../../components/Input";
 import validateRegister from "../../validators/validate-register";
-// import * as authApi from "../../apis/auth-api";
+import * as authApi from "../../apis/auth-api";
 import Input from "../../component/Input";
 // import useLoading from "../../hooks/useLoading";
 
@@ -14,7 +14,7 @@ const initialInput = {
   confirmPassword: "",
 };
 
-function RegisterForm(onClose) {
+function RegisterForm({ onClose }) {
   const [input, setInput] = useState(initialInput);
   const [error, setError] = useState({});
   // ## show error with red text that get from console
@@ -26,14 +26,22 @@ function RegisterForm(onClose) {
 
   // ## logic for handle submit form
   const handleSubmitForm = async (e) => {
-    // try {
-    e.preventDefault();
-    const result = validateRegister(input);
-    console.dir(error);
-    if (result) {
-      setError(result);
-    } else {
-      setError({});
+    try {
+      e.preventDefault();
+      const result = validateRegister(input);
+      // console.dir(error);
+      if (result) {
+        setError(result);
+      } else {
+        setError({});
+        await authApi.register(input); // #command register to workbench
+        setInput(initialInput);
+        onClose();
+        toast.success("Success register. Please log in");
+      }
+    } catch (err) {
+      // console.log(err);
+      toast.error(err.response?.data.message); //# error response from log
     }
   };
 
@@ -99,7 +107,7 @@ function RegisterForm(onClose) {
         />
         <span>Already have an account?</span>
 
-        {/* <Link to="#"> */}
+        {/* <Link to="/profile"> */}
         <button
           className="text-white bg-teal-400 font-bold uppercase text-center px-6 py-3 mt-8 rounded-3xl shadow hover:shadow-lg outline-none focus:outline-none  invalid:border-red-500 "
           type="submit"
