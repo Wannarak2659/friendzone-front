@@ -11,6 +11,7 @@ import PostPage from "../pages/PostPage";
 import ProfilePage from "../pages/ProfilePage";
 import LandingPage from "../pages/LandingPage";
 import RedirectLogin from "../feature/auth/RedirectLogin";
+import ProtectedRoute from "../feature/auth/ProtectedRoute";
 
 const router = createBrowserRouter([
   {
@@ -27,10 +28,17 @@ const router = createBrowserRouter([
   },
   {
     path: "/",
-    element: <NavbarLayout />,
+    element: (
+      <ProtectedRoute>
+        <NavbarLayout />
+      </ProtectedRoute>
+    ),
     errorElement: <ErrorPage />,
     children: [
-      { path: "/", element: <GroupPage /> },
+      {
+        path: "/",
+        element: <GroupPage />,
+      },
       { path: "create", element: <CreateGroupPage /> },
       { path: "profile", element: <ProfilePage /> },
       { path: "profile/:id", element: <ProfilePage /> },

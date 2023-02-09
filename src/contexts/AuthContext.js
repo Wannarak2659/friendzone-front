@@ -1,6 +1,10 @@
 import { createContext, useState } from "react";
 import * as authApi from "../apis/auth-api";
-import { getAccessToken, setAccessToken } from "../utils/local-storage";
+import {
+  getAccessToken,
+  setAccessToken,
+  removeAccessToken,
+} from "../utils/local-storage";
 
 export const AuthContext = createContext();
 
@@ -20,8 +24,13 @@ export default function AuthContextProvider({ children }) {
     // jwtDecode(res.data.accessToken)
   };
 
+  const logout = () => {
+    removeAccessToken();
+    setAuthenticatedUser(null);
+  };
+
   return (
-    <AuthContext.Provider value={{ login, authenticatedUser }}>
+    <AuthContext.Provider value={{ login, logout, authenticatedUser }}>
       {children}
     </AuthContext.Provider>
   );

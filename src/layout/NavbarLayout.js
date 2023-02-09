@@ -1,9 +1,16 @@
 import React from "react";
-
-import { Link, Outlet } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import SearchBar from "../layout/SearchBar";
 
 function NavbarLayout() {
+  //   const navigate = useNavigate();
+
+  //   function handleClick() {
+  //     navigate("/home");
+  //   }
+  const { logout } = useAuth();
+
   return (
     <>
       {/* Friendzone Logo */}
@@ -44,12 +51,14 @@ function NavbarLayout() {
               </li>
 
               <li>
-                <Link
-                  to={"/home"}
+                <button
+                  // #navigate back to home because authenticatedUser=null so it remove token from local storage
+                  type="button"
+                  onClick={logout} //# from AuthContext
                   className="block py-4 pl-1 pr-2 font-semibold text-xl leading-[29px] text-white"
                 >
-                  Log out
-                </Link>
+                  LOG OUT
+                </button>
               </li>
             </ul>
           </div>

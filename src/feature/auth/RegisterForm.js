@@ -41,7 +41,8 @@ function RegisterForm({ onClose }) {
       }
     } catch (err) {
       // console.log(err);
-      toast.error(err.response?.data.message); //# error response from log
+      toast.error(err.response?.data.message);
+      //# error response from log
     }
   };
 
@@ -107,15 +108,12 @@ function RegisterForm({ onClose }) {
         />
         <span>Already have an account?</span>
 
-        {/* <Link to="/profile"> */}
         <button
           className="text-white bg-teal-400 font-bold uppercase text-center px-6 py-3 mt-8 rounded-3xl shadow hover:shadow-lg outline-none focus:outline-none  invalid:border-red-500 "
           type="submit"
-          // onClick={() => setShowRegisterModal(false)}
         >
           Create Account
         </button>
-        {/* </Link> */}
       </form>
     </div>
   );
