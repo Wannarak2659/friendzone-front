@@ -10,12 +10,16 @@ import GroupPage from "../pages/GroupPage";
 import PostPage from "../pages/PostPage";
 import ProfilePage from "../pages/ProfilePage";
 import LandingPage from "../pages/LandingPage";
-// import SearchPage from "../pages/SearchPage";
+import RedirectLogin from "../feature/auth/RedirectLogin";
 
 const router = createBrowserRouter([
   {
     path: "/home",
-    element: <LandingPage />,
+    element: (
+      <RedirectLogin>
+        <LandingPage />
+      </RedirectLogin>
+    ),
     children: [
       // { index: true, element: <LandingPage /> },
       // { path: "search", element: <SearchPage /> },

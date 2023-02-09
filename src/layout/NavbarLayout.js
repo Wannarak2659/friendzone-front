@@ -45,7 +45,7 @@ function NavbarLayout() {
 
               <li>
                 <Link
-                  to={"/landing"}
+                  to={"/home"}
                   className="block py-4 pl-1 pr-2 font-semibold text-xl leading-[29px] text-white"
                 >
                   Log out

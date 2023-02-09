@@ -110,7 +110,7 @@ function ProfilePage() {
                 <img className="rounded-t-lg " src="gamenight.jpg" alt="" />
                 <div className="p-2">
                   <Link
-                    to="/"
+                    to="/post"
                     className="text-gray-900 font-sm text-sm  text-center tracking-tight "
                   >
                     Travel Together

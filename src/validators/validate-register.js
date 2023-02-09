@@ -29,7 +29,7 @@ const registerSchema = Joi.object({
 const validateRegister = (input) => {
   const { error } = registerSchema.validate(input, {
     abortEarly: false,
-  }); // ## if error have value will declare result
+  }); // ## if error value will declare result
 
   if (error) {
     const result = error.details.reduce((acc, el) => {
