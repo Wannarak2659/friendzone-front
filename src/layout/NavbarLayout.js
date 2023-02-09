@@ -2,6 +2,8 @@ import React from "react";
 import useAuth from "../hooks/useAuth";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import SearchBar from "../layout/SearchBar";
+import authenticateUser from "../../../friendzone-front/src/contexts/AuthContext";
+import UserImage from "../component/UserImage";
 
 function NavbarLayout() {
   //   const navigate = useNavigate();
@@ -28,22 +30,18 @@ function NavbarLayout() {
           {/* Search Bar */}
           <SearchBar />
 
-          {/* ---------------------Group, avatar and Logout navbar------------------------*/}
+          {/* ----------Group, avatar and Logout navbar------------------------*/}
           <div className="hidden w-full md:block md:w-auto" id="navbar-default">
-            <ul className="flex flex-col p-4 mt-4 border md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 mx-0">
+            <ul className="flex flex-col p-2 mt-4 border md:flex-row md:space-x-2 md:mt-0 md:text-sm md:font-medium md:border-0 mx-0">
               <li>
-                <Link to="/profile" className="block py- pl-1 pr-2 ">
-                  <img
-                    className="w-10 h-10 m-2 rounded-full shadow-lg"
-                    src="user1.jpg"
-                    alt="Bonnie"
-                  />
+                <Link to="/profile" className="block px-2 ">
+                  <UserImage src={authenticateUser.profileImage} size="50" />
                 </Link>
               </li>
               <li>
                 <Link
                   to={"/"}
-                  className="block py-4 pl-1 pr-2 font-bold text-xl leading-[29px] text-white"
+                  className="block py-2 pl-1 pr-2 font-bold text-xl leading-[29px] text-white"
                   aria-current="page"
                 >
                   Group
@@ -55,9 +53,9 @@ function NavbarLayout() {
                   // #navigate back to home because authenticatedUser=null so it remove token from local storage
                   type="button"
                   onClick={logout} //# from AuthContext
-                  className="block py-4 pl-1 pr-2 font-semibold text-xl leading-[29px] text-white"
+                  className="block py-2 pl-1 pr-2 font-semibold text-xl leading-[29px] text-white"
                 >
-                  LOG OUT
+                  Log out
                 </button>
               </li>
             </ul>

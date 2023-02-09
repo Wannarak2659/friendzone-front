@@ -47,7 +47,6 @@ function LoginForm() {
         <button
           className="text-white bg-teal-400 font-bold uppercase text-sm px-6 py-3 rounded shadow "
           type="submit"
-          // onClick={() => setShowLoginModal(false)}
         >
           Log in
         </button>

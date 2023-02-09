@@ -1,24 +1,25 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import UserImage from "../component/UserImage";
 import EditProfile from "../feature/auth/EditProfile";
+import useAuth from "../hooks/useAuth";
 
 function ProfilePage() {
   const [showProfileModal, setShowProfileModal] = useState(false);
+  const { authenticatedUser } = useAuth();
   return (
     <>
       {/* //////////////////////// */}
       <div className="flex flex-row justify-around px-2 sm:px-4 py-2.5 mx-40 my-12">
         {/* --------------col -1 */}
-        <div className=" w-4/12 border-4 border-white rounded-lg shadow ">
+        <div className=" w-4/12 border-4 border-white rounded-lg shadow py-8">
           <div className="flex flex-col items-center pb-10">
-            <img
-              className="w-48 h-48 m-8 rounded-full shadow-lg"
-              src="user1.jpg"
-              alt="Bonnie"
-            />
-            <h5 className="mb-1 text-xl font-bold text-white ">Bonnie Green</h5>
+            <UserImage src={authenticatedUser.profileImage} size="200" />
+            <h5 className="my-4 text-xl font-bold text-white ">
+              {authenticatedUser.firstName} {authenticatedUser.lastName}
+            </h5>
             <p className="mb-1 text-sm font-bold text-white ">
-              Email: a@gmail.com
+              Email: {authenticatedUser.email}
             </p>
 
             <div className="flex mt-4 space-x-3 md:mt-6">
@@ -38,7 +39,7 @@ function ProfilePage() {
                       <div className="border-0 rounded-3xl shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                         <div className="flex items-start justify-between p-5 border-b border-solid border-gray-300 rounded-t ">
                           <h3 className=" text-black text-xl font=semibold">
-                            Edit Profile
+                            Update Profile
                           </h3>
 
                           {/* Exit button */}

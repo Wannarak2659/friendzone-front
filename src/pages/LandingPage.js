@@ -143,16 +143,16 @@ function LandingPage() {
                 {/* Register modal form */}
                 <RegisterForm onClose={() => setShowRegisterModal(false)} />
 
-                {/* Footer modal */}
-                <div className="flex items-center justify-center p-6 border-t border-solid border-blueGray-200 rounded-b">
-                  {/* <button
+                {/* Footer modal
+                <div className="flex items-center justify-center p-6 border-t border-solid border-blueGray-200 rounded-b"> */}
+                {/* <button
                     className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1"
                     type="button"
                     onClick={() => setShowRegisterModal(false)}
                   >
                     Close
                   </button> */}
-                </div>
+                {/* </div> */}
               </div>
             </div>
           </div>

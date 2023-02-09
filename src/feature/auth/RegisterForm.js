@@ -106,10 +106,10 @@ function RegisterForm({ onClose }) {
           onChange={handleChangeInput}
           error={error.confirmPassword}
         />
-        <span>Already have an account?</span>
+        {/* <span>Already have an account?</span> */}
 
         <button
-          className="text-white bg-teal-400 font-bold uppercase text-center px-6 py-3 mt-8 rounded-3xl shadow hover:shadow-lg outline-none focus:outline-none  invalid:border-red-500 "
+          className="text-white bg-teal-400 font-bold uppercase text-center px-6 py-3 mt-8 rounded-3xl shadow hover:shadow-lg outline-none focus:outline-none "
           type="submit"
         >
           Create Account
