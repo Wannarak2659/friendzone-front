@@ -3,10 +3,12 @@ import PostForm from "../post/PostForm";
 import GroupImage from "../group/GroupImage";
 import GroupName from "../group/GroupName";
 import { useParams } from "react-router-dom";
+import useGroup from "../hooks/useGroup";
 
 // import { Link } from "react-router-dom";
 
 function PostPage() {
+  const { currentGroup } = useGroup();
   const params = useParams();
   console.log(params.id);
 
@@ -25,7 +27,7 @@ function PostPage() {
         {/* --------------col -1 */}
         <div className=" w-4/12 border-4 justify-start border-white rounded-lg shadow ">
           <div className="flex flex-col items-center pb-10">
-            <GroupImage width="200" />
+            <GroupImage image={currentGroup.groupImage} />
             <GroupName />
           </div>
         </div>

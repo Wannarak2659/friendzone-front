@@ -1,10 +1,13 @@
 import React from "react";
+import useGroup from "../hooks/useGroup";
 
 export default function GroupName() {
+  const { currentGroup } = useGroup();
+
   return (
     <div className="text-center my-2">
       <h5 className="text-gray-900 font-bold tracking-tight">
-        Travel Together
+        {currentGroup.name}
       </h5>
     </div>
   );

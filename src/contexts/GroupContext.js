@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
+import { createContext, useState } from "react";
 
-const [showGroup, setShowGroup] = useState();
+export const GroupContext = createContext();
 
-useEffect(() => {
-  const fetchCreateGroup = async () => {
-    const res = await getAllGroup();
-    setShowGroup(res.data);
-  };
-  fetchCreateGroup();
-}, []);
+export default function GroupContextProvider({ children }) {
+  const [currentGroup, setCurrentGroup] = useState({});
+  console.log(currentGroup);
+  return (
+    <GroupContext.Provider value={{ currentGroup, setCurrentGroup }}>
+      {children}
+    </GroupContext.Provider>
+  );
+}

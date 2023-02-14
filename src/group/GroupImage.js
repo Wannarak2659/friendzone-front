@@ -1,13 +1,13 @@
 import groupImage from "../assets/friend.jpg";
 
-export default function GroupImage({ src, width, height }) {
+export default function GroupImage({ image }) {
   return (
     <img
       className="rounded-t-md justify-center"
-      src={src || groupImage}
+      src={image || groupImage}
       alt="cover"
-      width={width}
-      height={height}
+      width={400}
+      height={400}
       //   width={`${size}px`}
       //   height={size}
     />

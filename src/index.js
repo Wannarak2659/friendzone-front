@@ -4,13 +4,16 @@ import "react-toastify/dist/ReactToastify.css";
 import "./index.css";
 import App from "./App";
 import AuthContextProvider from "./contexts/AuthContext";
+import GroupContextProvider from "./contexts/GroupContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <AuthContextProvider>
-      <App />
-    </AuthContextProvider>
+    <GroupContextProvider>
+      <AuthContextProvider>
+        <App />
+      </AuthContextProvider>
+    </GroupContextProvider>
   </React.StrictMode>
 );
 

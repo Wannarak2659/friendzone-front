@@ -1,6 +1,7 @@
 import { getAllGroup } from "../apis/auth-api";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import useGroup from "../hooks/useGroup";
 // import GroupCard from "../feature/auth/GroupCard";
 
 function GroupPage() {
@@ -13,6 +14,7 @@ function GroupPage() {
   //map state
 
   const [showGroup, setShowGroup] = useState();
+  const { setCurrentGroup } = useGroup();
 
   useEffect(() => {
     const fetchCreateGroup = async () => {
@@ -53,7 +55,8 @@ function GroupPage() {
 
                 <Link
                   to={`/group/${item.id}`}
-                  state={item}
+                  onClick={() => setCurrentGroup(item)}
+                  // state={item}
                   className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-teal-400 rounded-lg"
                 >
                   More...
