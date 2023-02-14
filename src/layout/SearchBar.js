@@ -31,7 +31,7 @@ function SearchBar() {
           <input
             type="search"
             id="default-search"
-            className="block w-[700px] p-4 pl-10 text-sm rounded-3xl"
+            className="block w-full lg:w-[600px] p-4 pl-10 text-sm rounded-3xl justify-center text-black"
             placeholder="Search..."
             required
           />

@@ -41,7 +41,7 @@ const router = createBrowserRouter([
       },
       { path: "create", element: <CreateGroupPage /> },
       { path: "profile", element: <ProfilePage /> },
-      { path: "profile/:id", element: <ProfilePage /> },
+      { path: "group/:id", element: <PostPage /> },
       { path: "profile/:id/setting", element: <ProfilePage /> },
       { path: "/post", element: <PostPage /> },
       { path: "*", element: <Navigate to="/home" /> },

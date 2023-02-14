@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import UserImage from "../component/UserImage";
 import EditProfile from "../feature/auth/EditProfile";
+// import GroupCard from "../feature/auth/GroupCard";
 import useAuth from "../hooks/useAuth";
 
 function ProfilePage() {
@@ -54,7 +55,9 @@ function ProfilePage() {
                         </div>
 
                         {/* Profile modal form */}
-                        <EditProfile />
+                        <EditProfile
+                          onSuccess={() => setShowProfileModal(false)}
+                        />
                       </div>
                     </div>
                   </div>
@@ -63,30 +66,19 @@ function ProfilePage() {
             </div>
           </div>
         </div>
-        {/* ------------ end col 1------------ */}
+        {/* ------------ end ------------ */}
 
         {/* --------------col -2 */}
         <div className="w-7/12 bg-white border border-gray-200 rounded-lg shadow ">
           <h1 className="p-2 font-extrabold bg-teal-400 w-24 text-center rounded-xl mx-6 my-2 ">
             GROUPS
           </h1>
-          <div className="grid grid-cols-3 mx-8">
+
+          <div className="flex flex-auto">
             {/* group  */}
 
-            <div className=" flex flex-row m-6 w-36">
-              <div className="bg-white shadow-md border border-gray-200 rounded-lg mb-6">
-                <img className="rounded-t-lg " src="gamenight.jpg" alt="" />
-                <div className="p-2">
-                  <h5 className="text-gray-900 font-sm text-sm  text-center tracking-tight ">
-                    Travel Together
-                  </h5>
-                </div>
-              </div>
-            </div>
-            {/* end group */}
-
             {/* group  */}
-            <div className=" flex flex-row m-6 w-36">
+            {/* <div className=" flex m-6 w-36">
               <div className="bg-white shadow-md border border-gray-200 rounded-lg mb-6">
                 <img className="rounded-t-lg " src="gamenight.jpg" alt="" />
                 <div className="p-2">
@@ -98,20 +90,7 @@ function ProfilePage() {
                   </Link>
                 </div>
               </div>
-            </div>
-            {/* end group */}
-
-            {/* group  */}
-            <div className=" flex m-6 w-36">
-              <div className="bg-white shadow-md border border-gray-200 rounded-lg mb-6">
-                <img className="rounded-t-lg " src="gamenight.jpg" alt="" />
-                <div className="p-2">
-                  <h5 className="text-gray-900 font-sm text-sm  text-center tracking-tight ">
-                    Travel Together
-                  </h5>
-                </div>
-              </div>
-            </div>
+            </div> */}
             {/* end group */}
           </div>
         </div>

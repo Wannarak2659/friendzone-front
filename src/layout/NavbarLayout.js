@@ -1,8 +1,8 @@
 import React from "react";
 import useAuth from "../hooks/useAuth";
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import SearchBar from "../layout/SearchBar";
-import authenticateUser from "../../../friendzone-front/src/contexts/AuthContext";
+
 import UserImage from "../component/UserImage";
 
 function NavbarLayout() {
@@ -11,7 +11,8 @@ function NavbarLayout() {
   //   function handleClick() {
   //     navigate("/home");
   //   }
-  const { logout } = useAuth();
+
+  const { logout, authenticatedUser } = useAuth();
 
   return (
     <>
@@ -35,7 +36,7 @@ function NavbarLayout() {
             <ul className="flex flex-col p-2 mt-4 border md:flex-row md:space-x-2 md:mt-0 md:text-sm md:font-medium md:border-0 mx-0">
               <li>
                 <Link to="/profile" className="block px-2 ">
-                  <UserImage src={authenticateUser.profileImage} size="50" />
+                  <UserImage src={authenticatedUser.profileImage} size="50" />
                 </Link>
               </li>
               <li>

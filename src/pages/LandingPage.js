@@ -9,26 +9,29 @@ function LandingPage() {
   const [showLoginModal, setShowLoginModal] = useState(false);
 
   return (
-    <div>
-      <img
-        src="macbook1.png"
-        alt="cover"
-        className="absolute w-[795px] h-[470px] left-[520px] top-[200px]"
-      />
+    <>
+      <div className="">
+        <img
+          src="macbook1.png"
+          alt="cover"
+          className="absolute md:w-[795px] md:h-[470px] left-[580px] top-[200px]"
+        />
+        <div className="">
+          {/* text box */}
+          <h1 className="absolute w-[480px] h-[163px] not-italic font-semibold text-4xl leading-[120%] flex items-center text-justify left-[50px] top-[250px]">
+            Joining a group can open up a new chances and possibilities when
+            pursing a share interest
+          </h1>
 
-      {/* text box */}
-      <h1 className="absolute w-[480px] h-[163px] not-italic font-semibold text-4xl leading-[120%] flex items-center text-justify left-[40px] top-[250px]">
-        Joining a group can open up a new chances and possibilities when pursing
-        a share interest
-      </h1>
-
-      {/* get started button */}
-      <button
-        onClick={() => setShowRegisterModal(true)}
-        className="bg-white text-teal-500 font-extrabold border-2 rounded-3xl absolute w-[258px] h-[62px] left-[150px] top-[450px]"
-      >
-        GET STARTED
-      </button>
+          {/* get started button */}
+          <button
+            onClick={() => setShowRegisterModal(true)}
+            className="bg-white text-teal-500 font-extrabold border-2 rounded-3xl absolute w-[258px] h-[62px] left-[150px] top-[450px]"
+          >
+            GET STARTED
+          </button>
+        </div>
+      </div>
 
       {/* ########### LANDING PAGE NAV BAR ############## */}
       <div>
@@ -45,7 +48,7 @@ function LandingPage() {
             </Link>
 
             {/* -------------Search Bar-------------- */}
-            <SearchBar />
+            {/* <SearchBar /> */}
 
             {/* -------------Login navbar------------*/}
             <div
@@ -89,18 +92,18 @@ function LandingPage() {
                           <LoginForm />
 
                           {/* Footer modal */}
-                          <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
-                            {/* <button
+                          {/* <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b"> */}
+                          {/* <button
                               className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1"
                               type="button"
                               onClick={() => setShowLoginModal(false)}
                             >
                               Close
                             </button> */}
-                          </div>
                         </div>
                       </div>
                     </div>
+                    {/* </div> */}
                   </>
                 ) : null}
                 {/* <li>
@@ -159,7 +162,7 @@ function LandingPage() {
         </>
       ) : null}
       <Outlet />
-    </div>
+    </>
   );
 }
 

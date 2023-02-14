@@ -4,7 +4,7 @@ export default function UserImage({ src, size }) {
   return (
     <img
       src={src || profileImage}
-      className="rounded-full"
+      className="rounded-full cursor-pointer"
       width={size}
       height={size}
     />

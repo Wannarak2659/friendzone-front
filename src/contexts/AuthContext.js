@@ -42,8 +42,20 @@ export default function AuthContextProvider({ children }) {
     setAuthenticatedUser(null);
   };
 
+  const updateProfile = async (data) => {
+    setAuthenticatedUser({ ...authenticatedUser, ...data });
+  };
+
   return (
-    <AuthContext.Provider value={{ login, logout, authenticatedUser }}>
+    <AuthContext.Provider
+      value={{
+        login,
+        logout,
+        updateProfile,
+        authenticatedUser,
+        setAuthenticatedUser,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
