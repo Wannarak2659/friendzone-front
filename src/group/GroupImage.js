@@ -3,7 +3,7 @@ import groupImage from "../assets/friend.jpg";
 export default function GroupImage({ image }) {
   return (
     <img
-      className="rounded-t-md justify-center"
+      className="rounded-md justify-center"
       src={image || groupImage}
       alt="cover"
       width={400}

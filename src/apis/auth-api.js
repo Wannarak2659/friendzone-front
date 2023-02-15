@@ -14,4 +14,6 @@ export const createGroup = (FormData) => axios.post("/groups", FormData);
 
 export const getAllGroup = () => axios.get("/groups");
 
-export const getAllPost = () => axios.get("/posts");
+export const createPost = (data) => axios.post("/posts", data);
+
+export const getAllPost = (data) => axios.post("/posts", data);

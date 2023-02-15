@@ -14,11 +14,11 @@ function LandingPage() {
         <img
           src="macbook1.png"
           alt="cover"
-          className="absolute md:w-[795px] md:h-[470px] left-[580px] top-[200px]"
+          className="absolute md:w-[795px] md:h-[470px] left-[640px] top-[200px]"
         />
         <div className="">
           {/* text box */}
-          <h1 className="absolute w-[480px] h-[163px] not-italic font-semibold text-4xl leading-[120%] flex items-center text-justify left-[50px] top-[250px]">
+          <h1 className="absolute w-[480px] h-[163px] not-italic font-semibold text-4xl leading-[120%] flex items-center text-justify left-[80px] top-[250px]">
             Joining a group can open up a new chances and possibilities when
             pursing a share interest
           </h1>

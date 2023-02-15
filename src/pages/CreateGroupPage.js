@@ -39,21 +39,11 @@ export default function CreateGroupPage() {
     if (groupDetail) {
       formData.append("detail", groupDetail);
     }
-    // if (groupPhoto) {
-    //   formData.append("groupPhoto", file);
-    // }
+
     formData.append("groupImage", groupPhoto);
-    // for (var pair of formData.entries()) {
-    // console.log(pair[0] + ", " + pair[1]);
-    // }
-    // if (result) {
-    //   setError(result);
-    // } else {
-    //   setError({});
+
     await authApi.createGroup(formData);
-    // setGroupName("");
-    // setGroupDetail("");
-    // setGroupPhoto("");
+
     toast.success("Group Successfully Created");
   };
 

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import UserImage from "../component/UserImage";
 import EditProfile from "../feature/auth/EditProfile";
+import GroupCard from "../feature/auth/GroupCard";
 // import GroupCard from "../feature/auth/GroupCard";
 import useAuth from "../hooks/useAuth";
 
@@ -75,23 +76,7 @@ function ProfilePage() {
           </h1>
 
           <div className="flex flex-auto">
-            {/* group  */}
-
-            {/* group  */}
-            {/* <div className=" flex m-6 w-36">
-              <div className="bg-white shadow-md border border-gray-200 rounded-lg mb-6">
-                <img className="rounded-t-lg " src="gamenight.jpg" alt="" />
-                <div className="p-2">
-                  <Link
-                    to="/post"
-                    className="text-gray-900 font-sm text-sm  text-center tracking-tight "
-                  >
-                    Travel Together
-                  </Link>
-                </div>
-              </div>
-            </div> */}
-            {/* end group */}
+            <GroupCard size="100" />
           </div>
         </div>
         {/* ------------ end col 2------------ */}
