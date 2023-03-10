@@ -6,14 +6,6 @@ import GroupCard from "../feature/auth/GroupCard";
 // import GroupCard from "../feature/auth/GroupCard";
 
 function GroupPage() {
-  //state to collect data from BE
-
-  //function to set response to state
-
-  //use effect call fuction
-
-  //map state
-
   const [showGroup, setShowGroup] = useState();
   const { setCurrentGroup } = useGroup();
 
@@ -39,7 +31,7 @@ function GroupPage() {
         </Link>
       </div>
 
-      <div>
+      <div className="mx-12 flex flex-wrap justify-evenly">
         <GroupCard />
         {/* End group */}
       </div>

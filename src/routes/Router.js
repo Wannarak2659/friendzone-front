@@ -21,10 +21,6 @@ const router = createBrowserRouter([
         <LandingPage />
       </RedirectLogin>
     ),
-    children: [
-      // { index: true, element: <LandingPage /> },
-      // { path: "search", element: <SearchPage /> },
-    ],
   },
   {
     path: "/",
@@ -42,7 +38,7 @@ const router = createBrowserRouter([
       { path: "create", element: <CreateGroupPage /> },
       { path: "profile", element: <ProfilePage /> },
       { path: "group/:id", element: <PostPage /> },
-      { path: "profile/:id/setting", element: <ProfilePage /> },
+      // { path: "profile/:id/setting", element: <ProfilePage /> },
       { path: "/post", element: <PostPage /> },
       { path: "*", element: <Navigate to="/home" /> },
     ],

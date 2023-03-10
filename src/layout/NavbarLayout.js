@@ -2,6 +2,7 @@ import React from "react";
 import useAuth from "../hooks/useAuth";
 import { Link, Outlet } from "react-router-dom";
 import SearchBar from "../layout/SearchBar";
+import logo from "../assets/FriendLogo.png";
 
 import UserImage from "../component/UserImage";
 
@@ -21,7 +22,7 @@ function NavbarLayout() {
         <div className="flex flex-wrap items-center justify-between mx-auto">
           <Link to={"/"} className="flex items-center">
             <img
-              src="FriendLogo.png"
+              src={logo}
               className="h-24 mr-3 rounded-full  "
               alt="Friend Logo"
             />

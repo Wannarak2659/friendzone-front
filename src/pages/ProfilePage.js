@@ -70,15 +70,15 @@ function ProfilePage() {
         {/* ------------ end ------------ */}
 
         {/* --------------col -2 */}
-        <div className="w-7/12 bg-white border border-gray-200 rounded-lg shadow ">
+        {/* <div className="w-7/12 bg-white border border-gray-200 rounded-lg shadow ">
           <h1 className="p-2 font-extrabold bg-teal-400 w-24 text-center rounded-xl mx-6 my-2 ">
             GROUPS
           </h1>
 
           <div className="flex flex-auto">
-            <GroupCard size="100" />
+            <GroupCard size="60" />
           </div>
-        </div>
+        </div> */}
         {/* ------------ end col 2------------ */}
       </div>
     </>

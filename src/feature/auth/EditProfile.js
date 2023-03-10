@@ -84,8 +84,6 @@ function EditProfile({ onSuccess, updateProfileUser }) {
             <button
               className="text-white bg-teal-400 font-bold uppercase text-center px-6 py-3 rounded-lg shadow hover:shadow-lg outline-none focus:outline-none mt-0 "
               type="submit"
-
-              // onClick={() => setShowProfileModal(false)}
             >
               Submit
             </button>

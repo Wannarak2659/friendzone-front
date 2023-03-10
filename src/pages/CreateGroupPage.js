@@ -1,4 +1,5 @@
 import { React, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 // import validateCreateGroup from "../validators/";
 import * as authApi from "../apis/auth-api";
@@ -16,14 +17,16 @@ export default function CreateGroupPage() {
   const [groupDetail, setGroupDetail] = useState("");
   const [groupPhoto, setGroupPhoto] = useState(null);
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     const fetchCreateGroup = async () => {
       // add try{}
       const res = await authApi.createGroup();
 
-      setGroupName(res.data.groups);
-      setGroupDetail(res.data.groups);
-      setGroupPhoto(res.data.groups);
+      // setGroupName(res.data.groups); ///?????
+      // setGroupDetail(res.data.groups); ///????
+      // setGroupPhoto(res.data.groups); ///????
     };
     fetchCreateGroup();
   }, []);
@@ -45,6 +48,7 @@ export default function CreateGroupPage() {
     await authApi.createGroup(formData);
 
     toast.success("Group Successfully Created");
+    navigate("/");
   };
 
   return (

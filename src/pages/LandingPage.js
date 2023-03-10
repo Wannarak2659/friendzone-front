@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import LoginForm from "../feature/auth/LoginForm";
 import RegisterForm from "../feature/auth/RegisterForm";
-import SearchBar from "../layout/SearchBar";
+// import SearchBar from "../layout/SearchBar";
+import logo from "../assets/FriendLogo.png";
 
 function LandingPage() {
   const [showRegisterModal, setShowRegisterModal] = useState(false);
@@ -40,7 +41,7 @@ function LandingPage() {
           <div className="container flex flex-wrap items-center justify-between mx-auto">
             <Link to="" className="flex items-center">
               <img
-                src="FriendLogo.png"
+                src={logo}
                 className="h-20 mr-3 rounded-full  "
                 alt="Friend Logo"
               />

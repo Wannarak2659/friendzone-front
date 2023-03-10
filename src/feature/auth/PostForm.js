@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import UserImage from "../../component/UserImage";
 import useAuth from "../../hooks/useAuth";
 import Dropdown from "../../component/Dropdown";
@@ -6,23 +7,14 @@ import * as authApi from "../../apis/auth-api";
 import { useParams } from "react-router-dom";
 
 export default function PostForm() {
+  const navigate = useNavigate();
+  const params = useParams();
   const { authenticatedUser } = useAuth();
 
   const [inputPost, setInputPost] = useState();
   const [showPost, setShowPost] = useState();
 
-  const params = useParams();
   console.log("group in ------> ", params.id);
-
-  // useEffect(() => {
-  //   const fetchCreatePost = async () => {
-  //     const res = await authApi.createPost();
-
-  //     console.log("---------> ", res.data.posts);
-  //     setShowPost(res.data);
-  //   };
-  //   fetchCreatePost();
-  // }, []);
 
   const handleSubmitForm = async (e) => {
     e.preventDefault();
@@ -30,19 +22,8 @@ export default function PostForm() {
       groupId: params.id,
       title: inputPost, /////
     });
+    navigate(`/group/${params.id}`);
   };
-
-  // const handleClickEdit = async (e) => {
-  //   e.preventDefault();
-  //   const formData = new FormData(); // #convert content type to FormData
-  //   formData.append("groupId", firstName);
-  //   formData.append("lastName", lastName);
-
-  //   const res = await userApi.updateProfile(formData);
-  //   setAuthenticatedUser(res.data.newUser);
-  //   onSuccess();
-  //   toast.success("Profile Successfully updated");
-  // };
 
   return (
     <div>
@@ -52,17 +33,19 @@ export default function PostForm() {
           <h5 className="my-2 text-xl font-bold text-white ">
             {authenticatedUser.firstName} {authenticatedUser.lastName}
           </h5>
-          <Dropdown className="" />
         </div>
 
-        <form className="mx-2" onSubmit={handleSubmitForm}>
+        <form
+          className="flex flex-row mx-2 w-[600px]"
+          onSubmit={handleSubmitForm}
+        >
           <input
             onChange={(e) => {
               setInputPost(e.target.value);
             }}
             type="text"
             placeholder="Write your post"
-            className="shadow appearance-none border rounded-3xl py-2 pl-4 mr-4 text-black "
+            className=" shadow appearance-none border rounded-3xl py-2 pl-4 mr-4 text-black w-full justify-between "
           />
           <button
             type="submit"
