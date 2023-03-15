@@ -7,7 +7,7 @@ export default function GroupName() {
   return (
     <div className="text-center my-2">
       <h5 className="text-white text-4xl font-bold tracking-tight">
-        {currentGroup.name}
+        {currentGroup?.name}
       </h5>
     </div>
   );

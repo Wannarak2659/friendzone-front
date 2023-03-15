@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { editGroup } from "../../apis/auth-api";
 import * as groupApi from "../../apis/auth-api";
 import { toast } from "react-toastify";
 // import useAuth from "../../hooks/useAuth";
@@ -10,34 +11,36 @@ const initialInput = {
   detail: "",
 };
 
-export default function EditGroupForm({ onSuccess }) {
+export default function EditGroupForm({ onSuccess, groupId }) {
   const [input, setInput] = useState(initialInput);
   const [groupImage, setGroupImage] = useState(null);
   const { currentGroup, setCurrentGroup } = useGroup();
   const navigate = useNavigate();
+  console.log("currentGroup", currentGroup);
 
   const handleChangeInput = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
 
   const handleSubmitForm = async (e) => {
-    e.preventDefault();
-    const formData = new FormData(); // #convert content type to FormData
-    formData.append("name", input.name);
-    formData.append("detail", input.detail);
-    formData.append("groupImage", groupImage);
-    //# append = add key: value to formData
-    const res = await groupApi.editGroup(currentGroup.id, formData);
+    try {
+      e.preventDefault();
+      const formData = new FormData(); // #convert content type to FormData
+      formData.append("name", input.name);
+      formData.append("detail", input.detail);
+      formData.append("groupImage", groupImage);
+      //# append = add key: value to formData
+      const res = await editGroup(currentGroup.id, formData);
+      // setCurrentGroup(updateGroup);
+      // setInput(initialInput);
 
-    // setCurrentGroup(res.data.newGroups);
-    // setInput(initialInput);
-
-    onSuccess();
-    toast.success("Group Successfully updated");
-    console.log("------currentGroup---------", currentGroup);
-    navigate("/"); // ?????
-    // navigate(`group/${currentGroup.id}`);
+      toast.success("Group Successfully updated");
+      onSuccess(false);
+      navigate("/");
+    } catch (err) {}
   };
+
+  // useEffect(() => {});
 
   return (
     <>

@@ -5,15 +5,12 @@ import useAuth from "../../hooks/useAuth";
 function LoginForm() {
   const [emailLogin, setEmailLogin] = useState("");
   const [password, setPassword] = useState("");
-
   const { login } = useAuth();
 
   const handleLoginForm = async (e) => {
     try {
       e.preventDefault();
-
       await login(emailLogin, password);
-
       toast.success("Success login");
     } catch (err) {
       // console.log(err);

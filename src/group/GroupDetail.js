@@ -8,7 +8,7 @@ export default function GroupDetail() {
 
   return (
     <div>
-      <p className="font-normal mb-3">{currentGroup.detail}</p>
+      <p className="font-normal mb-3">{currentGroup?.detail}</p>
     </div>
   );
 }

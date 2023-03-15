@@ -16,14 +16,14 @@ export const getGroupById = (groupId) => axios.get(`/groups/${groupId}`);
 
 export const getAllGroup = () => axios.get("/groups");
 
-export const editGroup = (groupId, formData) => {
+export const editGroup = (groupId, formData) =>
   axios.patch(`/groups/${groupId}`, formData);
-};
 
 export const createPost = (data) => axios.post("/posts", data);
 
 export const getAllPost = (groupId) => axios.get(`/posts/${groupId}`);
 
-export const editPost = (postId) => axios.patch(`/posts/${postId}`);
+export const editPost = (postId, FormData) =>
+  axios.patch(`/posts/${postId}`, FormData);
 
 export const deletePost = (postId) => axios.delete(`/posts/${postId}`);

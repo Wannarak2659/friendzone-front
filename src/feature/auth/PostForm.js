@@ -6,29 +6,36 @@ import Dropdown from "../../component/Dropdown";
 import * as authApi from "../../apis/auth-api";
 import { useParams } from "react-router-dom";
 
-export default function PostForm() {
+export default function PostForm({
+  // showPost,
+  inputPost,
+  setInputPost,
+  handleSubmitForm,
+}) {
   const navigate = useNavigate();
   const params = useParams();
+
   const { authenticatedUser } = useAuth();
 
-  const [inputPost, setInputPost] = useState();
-  const [showPost, setShowPost] = useState();
+  // const [inputPost, setInputPost] = useState();
+  // const [showPost, setShowPost] = useState();
 
-  console.log("group in ------> ", params.id);
+  // console.log("showpost ------> ", showPost);
 
-  const handleSubmitForm = async (e) => {
-    e.preventDefault();
-    const res = await authApi.createPost({
-      groupId: params.id,
-      title: inputPost, /////
-    });
-    navigate(`/group/${params.id}`);
-  };
+  // const handleSubmitForm = async (e) => {
+  //   e.preventDefault();
+  //   const res = await authApi.createPost({
+  //     groupId: params.id,
+  //     title: inputPost, /////
+  //   });
+  //   setShowPost(res.data);
+  //   // navigate(`/group/${params.id}`);
+  // };
 
   return (
     <div>
       <div className="">
-        <div className="flex flex-row  border-white border-4 rounded-lg shadow justify-between p-2 mb-8">
+        <div className="flex flex-row  border-white border-4 rounded-lg shadow justify-between p-2 mb-8 max-sm:600px">
           <UserImage src={authenticatedUser.profileImage} size="50" />
           <h5 className="my-2 text-xl font-bold text-white ">
             {authenticatedUser.firstName} {authenticatedUser.lastName}
@@ -57,13 +64,11 @@ export default function PostForm() {
       </div>
       <div>
         {/* <h3 className="">Forum</h3> */}
-        {showPost?.map((item) => (
-          <div className="flex flex-row w-full border-white border-4 rounded-lg shadow justify-between p-2 mb-8 bg-gray-400">
-            <h5 className="p-2 text-left text-3xl font-black rounded-md text-white ">
-              {item.post}
-            </h5>
-          </div>
-        ))}
+        {/* {showPost?.map((item) => (
+          <h5 className="p-2 text-left text-3xl font-black rounded-md text-white ">
+            {item.post}
+          </h5>
+        ))} */}
       </div>
     </div>
   );

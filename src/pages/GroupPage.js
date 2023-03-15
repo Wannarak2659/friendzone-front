@@ -19,7 +19,7 @@ function GroupPage() {
 
   return (
     <>
-      <div className="flex flex-row justify-between my-4 mx-16">
+      <div className="flex flex-row justify-between my-4 mx-16 mx-">
         <h1 className="p-3 text-center text-4xl font-black rounded-md text-white ">
           Discover Group
         </h1>
@@ -31,8 +31,8 @@ function GroupPage() {
         </Link>
       </div>
 
-      <div className="mx-12 flex flex-wrap justify-evenly">
-        <GroupCard />
+      <div className="mx-8 my-4 flex flex-wrap justify-evenly">
+        <GroupCard group={showGroup} />
         {/* End group */}
       </div>
     </>

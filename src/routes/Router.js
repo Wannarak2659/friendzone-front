@@ -12,6 +12,7 @@ import ProfilePage from "../pages/ProfilePage";
 import LandingPage from "../pages/LandingPage";
 import RedirectLogin from "../feature/auth/RedirectLogin";
 import ProtectedRoute from "../feature/auth/ProtectedRoute";
+import TogglePost from "../pages/TogglePost";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,7 @@ const router = createBrowserRouter([
       { path: "group/:id", element: <PostPage /> },
       // { path: "profile/:id/setting", element: <ProfilePage /> },
       { path: "/post", element: <PostPage /> },
+      { path: "/toggle", element: <TogglePost /> },
       { path: "*", element: <Navigate to="/home" /> },
     ],
   },
